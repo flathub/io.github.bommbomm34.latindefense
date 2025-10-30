@@ -13,14 +13,11 @@ modules:
   - name: latin-defense
     buildsystem: simple
     build-commands:
-      - |
-        if [ "$FLATPAK_ARCH" = "aarch64" ]; then
-          sed -i 's/x86_64/arm64/' export_presets_flatpak.cfg
-        fi
-      - mv Godot_v4.5.1-stable_linux.x86_64 godot || true
-      - mv Godot_v4.5.1-stable_linux.arm64 godot || true
-      - mv export_presets_flatpak.cfg export_presets.cfg
-      - ./godot --headless --export-release "Linux Export" latin-defense
+      - | 
+        if [ "$FLATPAK_ARCH" = "aarch64" ]; then export BUILD_ARCH=arm64; else export BUILD_ARCH=amd64; fi
+        mv Godot_v4.5.1-stable_linux.x86_64 godot || true
+        mv Godot_v4.5.1-stable_linux.arm64 godot || true
+        ./godot --headless --export-release "Linux Flatpak $BUILD_ARCH" latin-defense
       - install -Dm755 latin-defense /app/bin/latin-defense
       - install -Dm644 ./assets/metadata/latin-defense.desktop /app/share/applications/io.github.bommbomm34.latindefense.desktop
       - install -Dm644 ./assets/metadata/logo.svg /app/share/icons/hicolor/scalable/apps/io.github.bommbomm34.latindefense.svg
@@ -40,5 +37,10 @@ modules:
         sha256: 1998af37f1387684e2c211cdb483daf492fc64dc6b12096bddcdca25b6910c86
       - type: git
         url: https://github.com/bommbomm34/latindefense.git
+<<<<<<< Updated upstream
         commit: 43751ee4261c7283d64910bcabc1ec2e09eb3c06
+=======
+        commit: 35196669cba41ad890564995ea6d6251cdd916a4
+
+>>>>>>> Stashed changes
 
