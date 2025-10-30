@@ -14,7 +14,7 @@ modules:
     buildsystem: simple
     build-commands:
       - | 
-        if [ "$FLATPAK_ARCH" = "aarch64" ]; then export BUILD_ARCH=arm64; else export BUILD_ARCH=amd64; fi
+        if [ "$FLATPAK_ARCH" = "aarch64" ]; then export BUILD_ARCH=aarch64; else export BUILD_ARCH=amd64; fi
         mv Godot_v4.5.1-stable_linux.x86_64 godot || true
         mv Godot_v4.5.1-stable_linux.arm64 godot || true
         ./godot --headless --export-release "Linux Flatpak $BUILD_ARCH" latin-defense
