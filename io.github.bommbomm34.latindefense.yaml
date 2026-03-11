@@ -37,4 +37,4 @@ modules:
         sha256: e6d372afd4fdfaae9571eb5e3568afcd96ce6db9a569244034154faf0ac69875
       - type: git
         url: https://github.com/bommbomm34/latindefense.git
-        commit: ebfa0f8328693d6d458ca65f7370b6b706e70786
+        commit: 3e65a21d48fa789451ad6600a42d4e199d06da9b
